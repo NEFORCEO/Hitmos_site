@@ -45,3 +45,10 @@ if not os.path.isdir("frontend"):
     os.makedirs("frontend", exist_ok=True)
 
 app.mount("/", StaticFiles(directory="frontend", html=True), name="static")
+
+
+@app.get('/')
+async def index():
+    with open("frontend/index.html", "r", encoding="utf-8")  as f:
+        return f.read()
+        
