@@ -1,3 +1,0 @@
-fastapi
-g4f
-uvicorn
