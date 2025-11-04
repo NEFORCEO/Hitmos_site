@@ -11,6 +11,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+  <!-- Оверлей для мобильного меню -->
+  <div class="menu-overlay" id="menuOverlay"></div>
+  
   <div class="app-container">
 
     <!-- Шапка мессенджера -->
@@ -30,7 +33,7 @@
           <button class="action-btn mobile-menu-btn" id="mobileMenuBtn">
             <i class="fas fa-bars"></i>
           </button>
-          <button class="action-btn" id="settingsBtn">
+          <button class="action-btn desktop-only" id="settingsBtn">
             <i class="fas fa-cog"></i>
           </button>
           <button class="action-btn" id="themeBtn">
@@ -47,7 +50,7 @@
       <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
           <h2>Настройки</h2>
-          <button class="close-sidebar" id="closeSidebar">
+          <button class="close-sidebar mobile-only" id="closeSidebar">
             <i class="fas fa-times"></i>
           </button>
         </div>
@@ -55,7 +58,7 @@
         <div class="settings-section">
           <h3>Модель AI</h3>
           <select id="model" class="model-select">
-            <option value="Qwen/Qwen3-14B" selected>DeepSeek</option>
+            <option value="Qwen/Qwen3-14B" selected>Qwen3-14B</option>
           </select>
         </div>
 
@@ -65,6 +68,22 @@
           <button class="clear-history-btn" id="clearHistoryBtn">
             <i class="fas fa-trash"></i> Очистить историю
           </button>
+        </div>
+
+        <!-- Мобильная информация -->
+        <div class="mobile-sidebar-info mobile-only">
+          <div class="info-item">
+            <i class="fas fa-info-circle"></i>
+            <span>Hitmos AI Assistant</span>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-shield-alt"></i>
+            <span>Безопасные чаты</span>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-bolt"></i>
+            <span>Быстрые ответы</span>
+          </div>
         </div>
       </aside>
 

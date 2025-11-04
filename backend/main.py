@@ -1,21 +1,15 @@
 import os 
-import asyncio
+
 
 from g4f.client import AsyncClient
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel
-import uvicorn
 
-class GptCreate(BaseModel):
-    model: str = "Qwen/Qwen3-14B"
-    prompt: str 
-    
-class GptResult(BaseModel):
-    status: int
-    message: str 
+from backend.schema.schema import GptCreate, GptResult
+
+
 
 client = AsyncClient()
 app = FastAPI()
