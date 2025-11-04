@@ -45,6 +45,3 @@ if not os.path.isdir("frontend"):
     os.makedirs("frontend", exist_ok=True)
 
 app.mount("/", StaticFiles(directory="frontend", html=True), name="static")
-
-if __name__ == "__main__":
-    uvicorn.run("main:app", port=8000, reload=True)
