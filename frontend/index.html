@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hitmos AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+
+    <!-- Шапка мессенджера -->
+    <header class="chat-header">
+      <div class="header-content">
+        <div class="user-info">
+          <div class="avatar-container">
+            <img src="photo/avatarka.jpg" alt="Avatar" class="avatar">
+            <div class="status-indicator online"></div>
+          </div>
+          <div class="user-details">
+            <h1 class="username">Hitmos</h1>
+            <p class="status-text">В сети</p>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button class="action-btn mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+          </button>
+          <button class="action-btn" id="settingsBtn">
+            <i class="fas fa-cog"></i>
+          </button>
+          <button class="action-btn" id="themeBtn">
+            <i class="fas fa-moon"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Основная область чата -->
+    <main class="chat-main">
+
+      <!-- Боковая панель с настройками -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <h2>Настройки</h2>
+          <button class="close-sidebar" id="closeSidebar">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        
+        <div class="settings-section">
+          <h3>Модель AI</h3>
+          <select id="model" class="model-select">
+            <option value="Qwen/Qwen3-14B" selected>DeepSeek</option>
+          </select>
+        </div>
+
+        <div class="settings-section">
+          <h3>История чатов</h3>
+          <div class="history-list" id="historyList"></div>
+          <button class="clear-history-btn" id="clearHistoryBtn">
+            <i class="fas fa-trash"></i> Очистить историю
+          </button>
+        </div>
+      </aside>
+
+      <!-- Область сообщений -->
+      <section class="messages-container">
+        <div class="messages-wrapper" id="messagesContainer">
+          <div class="welcome-message">
+            <div class="welcome-content">
+              <div class="welcome-avatar">
+                <img src="photo/avatarka.jpg" alt="AI Avatar">
+              </div>
+              <h2>Привет! Я Hitmos 🤖</h2>
+              <p>Я мощная языковая модель. Готова помочь тебе с любыми вопросами!</p>
+              <div class="welcome-features">
+                <div class="feature-item">
+                  <i class="fas fa-bolt"></i>
+                  <span>Быстрые ответы</span>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-brain"></i>
+                  <span>Глубокий анализ</span>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-code"></i>
+                  <span>Поддержка кода</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Панель ввода -->
+        <div class="input-container">
+          <div class="input-wrapper">
+            <button class="attach-btn" id="attachBtn">
+              <i class="fas fa-paperclip"></i>
+            </button>
+            <textarea 
+              id="prompt" 
+              class="message-input" 
+              placeholder="Напиши сообщение..."
+              rows="1"
+            ></textarea>
+            <button class="voice-btn" id="voiceBtn">
+              <i class="fas fa-microphone"></i>
+            </button>
+            <button class="send-btn" id="sendBtn">
+              <i class="fas fa-paper-plane"></i>
+              <div class="send-spinner hidden"></div>
+            </button>
+          </div>
+          <div class="input-footer">
+            <span class="char-count">0 / 4000</span>
+            <div class="quick-actions">
+              <button class="quick-action" data-text="Расскажи о себе">
+                🤖 О себе
+              </button>
+              <button class="quick-action" data-text="Помоги с кодом">
+                💻 Код
+              </button>
+              <button class="quick-action" data-text="Напиши стих">
+                📝 Стих
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Плавающие элементы -->
+    <div class="floating-elements">
+      <div class="floating-orb orb-1"></div>
+      <div class="floating-orb orb-2"></div>
+      <div class="floating-orb orb-3"></div>
+    </div>
+
+    <!-- Модальное окно -->
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal-content">
+        <button class="modal-close" id="modalClose">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="modal-body" id="modalBody"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
